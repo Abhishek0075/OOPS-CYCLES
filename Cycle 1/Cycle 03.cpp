@@ -1,125 +1,105 @@
-//============================================================================
-// Name        : t7.cpp
-// Author      : 
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
-
 #include <iostream>
+#include <string>
 using namespace std;
-const int m=100;
-class bank{
-	string cust_name[m];
-	int acc_no[m];
-	float balance[m];
-	string acc_type[m];
-	int count;
-public:
-	void CNT(){
-		count=0;
-	}
-	void addaccount(){
-		string x;
-		cout<<"=========ADD ACCOUNT========="<<endl;
-		cout<<"Enter the name : ";
-		cin>>cust_name[count];
-		balance[count]=600;
-		if (count==0){
-			acc_no[count]=345358;
-		}else{
-			acc_no[count]=(acc_no[count-1])+1;
-		}
-		cout<<"Enter s for savings account and c for current account : ";
-		cin>>x;
-		if(x=="s"){
-			acc_type[count]="s";
-		}else if(x=="c"){
-			acc_type[count]="c";
-		}else{
-			cout<<"Input is wrong";
-		}
-		cout<<"Your account number = "<<acc_no[count]<<endl;
-		count++;
-	}
-	void withdraw(){
-		int x,i;
-		float y;
-		cout<<"=========WITHDRAW========="<<endl;
-		cout<<"Enter the account number : ";
-		cin>>x;
-		for(i=0;i<=count;i++){
-			if(acc_no[i]==x){
-				cout<<"Balance = "<<balance[i]<<endl;
-				if(balance[i]>500){
-					cout<<"Enter the amount to be withdrawed : ";
-					cin>>y;
-					balance[i]=balance[i]-y;
-					cout<<"===="<<y<<"Rs withdrawed and the balance is "<<balance[i]<<"===="<<endl;
-					break;
-				}else{
-					cout<<"INSUFFICENT BALANCE"<<endl;
-					break;
-				}
-				if(i==count){
-					cout<<"WRONG ACCOUNT NUMBER"<<endl;
-				}
-			}
-		}
-	}
-	void deposit(){
-		int x,i;
-		float y;
-		cout<<"=========DEPOSIT========="<<endl;
-		cout<<"Enter the account number :";
-		cin>>x;
-		cout<<"Enter the amount to be deposited : ";
-		cin>>y;
-		for(i=0;i<=count;i++){
-			if(acc_no[i]==x){
-				balance[i]=balance[i]+y;
-				cout<<"The balance = "<<balance[i]<<endl;
-				break;
-			}
-		}
-		if(i==count){
-			cout<<"WRONG ACCOUNT NUMBER"<<endl;
-		}
-	}
-	void statement(){
-		int x,i;
-		cout<<"Enter the account number of account of which you need statement : ";
-		cin>>x;
-		for(i=0;i<=count;i++){
-			if(acc_no[i]==x){
-				cout<<"========BANK STATEMENT========"<<endl;
-				cout<<"Name : "<<cust_name[i]<<endl;
-				cout<<"Account number : "<<acc_no[i]<<endl;
-				if(acc_type[i]=="s"){
-					cout<<"Account type : Savings"<<endl;
-				}else{
-					cout<<"Account type : Current"<<endl;
-				}
-				cout<<"Balance : "<<balance[i]<<endl;
-				break;
-			}
-		}
-		if(i==count){
-			cout<<"WRONG ACCOUNT NUMBER"<<endl;
-		}
 
-	}
+int count=101;
+
+class bank
+{
+	char cust_name[50], acc_type[50];
+	float acc_no;
+	float balance;
+public:
+	void addaccount();
+	void withdraw();
+	void deposit();
+	void balancecheck();
+	void statement();
 };
-int main() {
-	bank sbi;
-	sbi.CNT();
-	sbi.addaccount();
-	sbi.addaccount();
-	sbi.addaccount();
-	sbi.deposit();
-	sbi.withdraw();
-	sbi.statement();
-	return 0;
+
+
+void bank::addaccount()
+{
+	acc_no=count;
+	cout <<"Enter the account holder name : ";
+	cin >>cust_name;
+	cout <<"Enter the account type : ";
+	cin>>acc_type;
+	cout <<"Enter the total deposited amount(minimum 500) : ";
+	cin>>balance;
+	cout<<"AC No : "<<acc_no;
 }
 
+void bank ::withdraw(){
+	int b;
+	cout<<"Enter the amount to withdraw";
+	cin>>b;
+	if(balance>= (b+500)){
+		balance=balance-b;
+		cout<<b<<"Rs withdrawed balance ="<<balance<<endl;
+	}else{
+		cout<<"Insufficient balance";
+	}
+}
+void bank :: deposit()
+{
+	float b;
+	cout<<"Enter the amount to deposit : ";
+	cin >>b;
+	balance=balance+b;
+	cout<<"Balance : "<<balance;
 
+}
+
+void bank::balancecheck(){
+	cout<<"Balance : "<<balance;
+}
+void bank::statement(){
+	cout<<"Name : "<<cust_name;
+	cout<<"\nAC No : "<<acc_no;
+	cout<<"\nAC Type : "<<acc_type;
+	cout<<"\nBalance : "<<balance;
+}
+
+int main(){
+	bank cust[count];
+	int n=0, ac_no;
+	while(n<=5){
+		cout<<"\n============Welcome to SBI============"<<"\n===SELECT THE TRANSACTION YOU NEED===";
+		cout<<"\n1 : Add an account ";
+		cout<<"\n2 : Withdraw amount";
+		cout<<"\n3 : Deposit amount ";
+		cout<<"\n4 : Balance check";
+		cout<<"\n5 : Bank Statement ";
+		cout<<"\n6 : EXIT";
+		cout<<endl<<"Enter your input : ";
+		cin>>n;
+		if(n==1){
+			cust[count].addaccount();
+			count++;
+		}
+		else if(1<n and n<7)
+		{
+			cout<<"Enter the AC No : ";
+			cin>>ac_no;
+			if(ac_no>(count-1))
+			{
+				cout<<"AC No not match.";
+			}else{
+				if(n==2)
+					cust[ac_no].withdraw();
+				else if(n==3)
+					cust[ac_no].deposit();
+				else if(n==4)
+					cust[ac_no].balancecheck();
+				else if(n==5)
+					cust[ac_no].statement();
+				else
+					cout<<"Thank You for using SBI";
+			}
+		}else{
+			cout<<"Try Again";
+		}
+	}
+		return 0;
+}
