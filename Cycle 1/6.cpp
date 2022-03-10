@@ -72,7 +72,7 @@ int main(){
 		cout<<"\n4 : Balance check";
 		cout<<"\n5 : Bank Statement ";
 		cout<<"\nAny other key : EXIT";
-		cout<<endl<<"Enter your input : ";
+		cout<<endl<<"Give your input : ";
 		cin>>n;
 		if(n==1){
 			cust[count].addaccount();
