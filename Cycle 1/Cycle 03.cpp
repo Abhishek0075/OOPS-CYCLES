@@ -47,7 +47,7 @@ void bank :: deposit()
 	cout<<"Enter the amount to deposit : ";
 	cin >>b;
 	balance=balance+b;
-	cout<<"Balance : "<<balance;
+	cout<<b<<"Rs deposoted and new balance : "<<balance;
 
 }
 
@@ -71,8 +71,8 @@ int main(){
 		cout<<"\n3 : Deposit amount ";
 		cout<<"\n4 : Balance check";
 		cout<<"\n5 : Bank Statement ";
-		cout<<"\n6 : EXIT";
-		cout<<endl<<"Enter your input : ";
+		cout<<"\nAny other key : EXIT";
+		cout<<endl<<"Give your input : ";
 		cin>>n;
 		if(n==1){
 			cust[count].addaccount();
@@ -94,11 +94,9 @@ int main(){
 					cust[ac_no].balancecheck();
 				else if(n==5)
 					cust[ac_no].statement();
-				else
-					cout<<"Thank You for using SBI";
 			}
 		}else{
-			cout<<"Try Again";
+			cout<<"Thank You for using SBI";
 		}
 	}
 		return 0;
