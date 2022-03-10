@@ -23,7 +23,7 @@ void bank::addaccount()
 	acc_no=count;
 	cout <<"Enter the account holder name : ";
 	cin >>cust_name;
-	cout <<"Enter the account type : ";
+	cout <<"Enter 'savings' for Savings account and 'current' for a current account : ";
 	cin>>acc_type;
 	cout <<"Enter the total deposited amount(minimum 500) : ";
 	cin>>balance;
@@ -32,11 +32,11 @@ void bank::addaccount()
 
 void bank ::withdraw(){
 	int b;
-	cout<<"Enter the amount to withdraw";
+	cout<<"Enter the amount to withdraw : ";
 	cin>>b;
 	if(balance>= (b+500)){
 		balance=balance-b;
-		cout<<b<<"Rs withdrawed balance ="<<balance<<endl;
+		cout<<b<<"Rs withdrawed new balance is "<<balance<<endl;
 	}else{
 		cout<<"Insufficient balance";
 	}
