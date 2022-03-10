@@ -1,45 +1,44 @@
 #include <iostream>
 using namespace std;
 
-class matrix
+class MATRIX
 {
 	int **m;
-	int row,column;
+	int d1,d2;
 public:
-	matrix(){};
-	matrix(int x, int y);
+	MATRIX(){};
+	MATRIX(int x, int y);
 	void input(int &i,int &j,int &value)
 	{
 		m[i][j]=value;
 	}
-	int get_matrix(int, int);
-	void matrix_add(matrix &, matrix &);
-	void matrix_mult(matrix &, matrix &);
-	void matrix_transpose(matrix);
-	int matrix_trace(int);
+	int get(int, int);
+	void mtrx_add(MATRIX &, MATRIX &);
+	void mtrx_mult(MATRIX &, MATRIX &);
+	void mtrx_transpose(MATRIX);
+	int matrx_trace(int);
 };
 
-matrix::matrix(int x, int y)
+MATRIX::MATRIX(int x, int y)
 {
-	row=x;
-	column=y;
-	m=new int *[row];
-	for(int i=0;i<row;i++)
+	d1=x; d2=y;
+	m=new int *[d1];
+	for(int i=0;i<d1;i++)
 	{
-		m[i]=new int[column];
+		m[i]=new int [d2];
 	}
 }
 
-int matrix::get_matrix(int i, int j)
+int MATRIX::get(int i, int j)
 {
 	return(m[i][j]);
 }
 
-void matrix::matrix_add(matrix &a, matrix &b)
+void MATRIX::mtrx_add(MATRIX &a, MATRIX &b)
 {
-	for(int i=0;i<row;i++)
+	for(int i=0;i<d1;i++)
 	{
-		for(int j=0;j<column;j++)
+		for(int j=0;j<d2;j++)
 		{
 			m[i][j]=a.m[i][j]+b.m[i][j];
 			cout<<m[i][j]<<"  ";
@@ -48,87 +47,96 @@ void matrix::matrix_add(matrix &a, matrix &b)
 	}
 }
 
-void matrix::matrix_mult(matrix &a, matrix &b)
+void MATRIX::mtrx_mult(MATRIX &a, MATRIX &b)
 {
-	for(int i=0;i<a.row;i++)
+	for(int i=0;i<a.d1;i++)
 	{
-		for(int j=0;j<b.column;j++)
+		for(int j=0;j<b.d2;j++)
 		{
-			for(int k=0;k<b.row;k++)
+			for(int k=0;k<b.d1;k++)
 			{
 				m[i][j]=m[i][j]+a.m[i][k]*b.m[k][j];
 			}cout<<m[i][j];
-		}
-		cout<<endl;
+
+		}cout<<endl;
 	}
 }
 
-void matrix::matrix_transpose(matrix a)
+void MATRIX::mtrx_transpose(MATRIX a)
 {
-	for(int i=0;i<row;i++)
+	for(int i=0;i<d1;i++)
 	{
-		for(int j=0;j<row;j++)
+		for(int j=0;j<d1;j++)
 		{
-			int temp=a.m[j][i];
-			cout<<temp<<"  ";
+			int tp=a.m[j][i];
+			cout<<tp<<"  ";
 		}
 		cout<<endl;
 	}
 }
 
-int matrix::matrix_trace(int n){
+int MATRIX::matrx_trace(int n)
+{
 	int sum=0;
-	for(int i=0;i<n;i++){
+	for(int i=0;i<n;i++)
+	{
 		sum=sum+m[i][i];
 	}
 	return sum;
 }
 int main() {
-	int row1, row2, column1, column2,value;
+	int R1, R2, C1, C2;
 	cout<<"Enter the number of rows and coloum of first matrix : ";
-	cin>>row1>>column1;
-	matrix m1(row1,column1);
-	cout<<"Enter the element in the matrix row by row : ";
-	for(int i=0;i<row1;i++){
-		for(int j=0;j<column1;j++){
-			cin>>value;
-			m1.input(i, j, value);
+	cin>>R1>>C1;
+	MATRIX A(R1,C1);
+	cout<<"enter the element in the matrix row by row : ";
+	int x;
+	for(int i=0;i<R1;i++)
+	{
+		for(int j=0;j<C1;j++)
+		{
+			cin>>x;
+			A.input(i, j, x);
 		}
 	}
-	cout<<"Enter the row and coloum of second matrix :\n ";
-	cin>>row2>>column2;
-	matrix m2(row2,column2);
+	cout<<"Enter the row and coloum of second matrix : ";
+	cin>>R2>>C2;
+	MATRIX B(R2,C2);
 	cout<<"Enter the elements in the matrix row by row : \n";
         int x2;
-	for(int i2=0;i2<row2;i2++)
+	for(int i2=0;i2<R2;i2++)
 	{
-	    cout<<"Enter row "<<1+1<<endl;
-		for(int j2=0;j2<column2;j2++)
+		for(int j2=0;j2<C2;j2++)
 		{
-			cin>>value;
-			m2.input(i2, j2, x2);
+			cin>>x;
+			B.input(i2, j2, x2);
 		}
 	}
-	if(row1==row2 and column1==column2)
+	if(R1==R2 and C1==C2)
 	{
-		matrix S1(row1,column1);
-		S1.matrix_add(m1, m2);
+		MATRIX S1(R1,C1);
+		S1.mtrx_add(A, B);
 	}
 	else
 		cout<<"Matrix with different dimension";
-	if(column1==row2)
+	if(C1==R2)
 	{
-		matrix S2(row1,column2);
+		MATRIX S2(R1,C2);
 		cout<<"Product of the matrix : ";
-		S2.matrix_mult(m1, m2);
+		S2.mtrx_mult(A, B);
 	}
-	cout<<"Transpose of matrix : ";
-	matrix T(column1,row1);
-	T.matrix_transpose(m1);
-	if(row1==column1)
-	cout<<"Trace of matrix : ";
-	int trace=m1.matrix_trace(row1);
-   	cout<<trace<<endl;
+	cout<<"\nTranspose of matrix : "<<endl;
+	MATRIX T(C1,R1);
+	T.mtrx_transpose(A);
+	cout<<endl;
+	if(R1==C1){
+		cout<<"Trace of matrix : ";
+		int trace=A.matrx_trace(R1);
+		cout<<trace<<endl;
+	}else{
+		cout<<"Row not equal to column of matrix";
+	}
+
 
 	return 0;
 }
