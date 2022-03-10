@@ -13,9 +13,9 @@ public:
 		m[i][j]=value;
 	}
 	int get(int, int);
-	void mtrx_add(MATRIX &, MATRIX &);
-	void mtrx_mult(MATRIX &, MATRIX &);
-	void mtrx_transpose(MATRIX);
+	void matrix_add(MATRIX &, MATRIX &);
+	void matrix_mult(MATRIX &, MATRIX &);
+	void matrix_transpose(MATRIX);
 	int matrx_trace(int);
 };
 
@@ -34,7 +34,7 @@ int MATRIX::get(int i, int j)
 	return(m[i][j]);
 }
 
-void MATRIX::mtrx_add(MATRIX &a, MATRIX &b)
+void MATRIX::matrix_add(MATRIX &a, MATRIX &b)
 {
 	for(int i=0;i<d1;i++)
 	{
@@ -47,7 +47,7 @@ void MATRIX::mtrx_add(MATRIX &a, MATRIX &b)
 	}
 }
 
-void MATRIX::mtrx_mult(MATRIX &a, MATRIX &b)
+void MATRIX::matrix_mult(MATRIX &a, MATRIX &b)
 {
 	for(int i=0;i<a.d1;i++)
 	{
@@ -55,14 +55,14 @@ void MATRIX::mtrx_mult(MATRIX &a, MATRIX &b)
 		{
 			for(int k=0;k<b.d1;k++)
 			{
-				m[i][j]=m[i][j]+a.m[i][k]*b.m[k][j];
-			}cout<<m[i][j];
+				m[i][j]=(m[i][j])+(a.m[i][k])*(b.m[k][j]);
+			}cout<<m[i][j]<<" ";
 
 		}cout<<endl;
 	}
 }
 
-void MATRIX::mtrx_transpose(MATRIX a)
+void MATRIX::matrix_transpose(MATRIX a)
 {
 	for(int i=0;i<d1;i++)
 	{
@@ -86,7 +86,7 @@ int MATRIX::matrx_trace(int n)
 }
 int main() {
 	int R1, R2, C1, C2;
-	cout<<"Enter the number of rows and coloum of first matrix : ";
+	cout<<"Enter the number of rows and columns of first matrix : ";
 	cin>>R1>>C1;
 	MATRIX A(R1,C1);
 	cout<<"enter the element in the matrix row by row : ";
@@ -99,7 +99,7 @@ int main() {
 			A.input(i, j, x);
 		}
 	}
-	cout<<"Enter the row and coloum of second matrix : ";
+	cout<<"Enter the row and column of second matrix : ";
 	cin>>R2>>C2;
 	MATRIX B(R2,C2);
 	cout<<"Enter the elements in the matrix row by row : \n";
@@ -115,7 +115,8 @@ int main() {
 	if(R1==R2 and C1==C2)
 	{
 		MATRIX S1(R1,C1);
-		S1.mtrx_add(A, B);
+		cout<<"Sum = "<<endl;
+		S1.matrix_add(A, B);
 	}
 	else
 		cout<<"Matrix with different dimension";
@@ -123,11 +124,11 @@ int main() {
 	{
 		MATRIX S2(R1,C2);
 		cout<<"Product of the matrix : ";
-		S2.mtrx_mult(A, B);
+		S2.matrix_mult(A, B);
 	}
 	cout<<"\nTranspose of matrix : "<<endl;
 	MATRIX T(C1,R1);
-	T.mtrx_transpose(A);
+	T.matrix_transpose(A);
 	cout<<endl;
 	if(R1==C1){
 		cout<<"Trace of matrix : ";
