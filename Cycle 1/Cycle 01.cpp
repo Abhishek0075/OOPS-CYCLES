@@ -38,6 +38,7 @@ void set::input(void){
 	cout<<"Input Roll No"<<endl;
 	cin>>rollNo;
 	cout<<"Input Marks of 3 subjects"<<endl;
+	cout<<"Enter marks of Science : ";
 	cin>>Mark1;
 	while(Mark1>100){
 		cout<<"!! Mark is greater than 100 Enter right marks !!"<<endl;
@@ -46,6 +47,7 @@ void set::input(void){
 			break;
 		}
 	}
+	cout<<"Enter marks of Malayalam : ";
 	cin>>Mark2;
 	while(Mark2>100){
 		cout<<"!! Mark is greater than 100 Enter right marks !!"<<endl;
@@ -54,6 +56,7 @@ void set::input(void){
 			break;
 		}
 	}
+	cout<<"Enter marks of Maths : ";
 	cin>>Mark3;
 	while(Mark3>100){
 		cout<<"!! Mark is greater than 100 Enter right marks !!"<<endl;
@@ -64,9 +67,15 @@ void set::input(void){
 	}
 }
 void set::display(void){
-	cout<<"-------REPORT-------"<<endl;
+	cout<<" ";
+	cout<<"----------REPORT----------"<<endl;
 	cout<<"  Name : "<<name<<endl;
 	cout<<"  Roll No : "<<rollNo<<endl;
+	cout<<"  -------Marks-------"<<endl;
+	cout<<"  >> Science : "<<Mark1<<endl;
+	cout<<"  >> Malayalam : "<<Mark2<<endl;
+	cout<<"  >> Maths : "<<Mark3<<endl;
+	cout<<"  -------------------"<<endl;
 	cout<<"  Average marks : "<<avg<<endl;
 	cout<<"  Grade : ";
 }
@@ -75,14 +84,12 @@ int main() {
 	cout<<"Enter the number of students"<<endl;
 	cin>>x;
 	set A[x];
-	for(i=0;i<x;i++){
-		A[i].input();
-		cout<<"Enter 0 to exit or any other number to continue input of details : ";
-		cin>>e;
-		if(e==0){
-			break;
+		while(e!=0){
+			A[i].input();
+			i=i+1;
+			cout<<"Enter 0 to exit or any other number to continue input of details : ";
+			cin>>e;
 		}
-	}
 	for(j=0;j<=i;j++){
 		A[j].average();
 		A[j].display();

@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : 1.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -39,30 +39,34 @@ float area(float a,float b,float c){ //Trapezium
 }
 
 int main() {
-    int x,a,b,c;
+    int x=3,a,b,c,y;
     float r,s,t;
-    cout<<"Enter 1 for area of square"<<endl<<"Enter 2 for area of Circle"<<endl<<"Enter 3 for area of Triangle"<<endl;
-    cout<<"Enter 4 for area of rectangle "<<endl<<"Enter 5 for area of trapezium"<<endl<<"Enter any number other than this to exit"<<endl;
-    x=3;
     while (x<=5 && x>0) {
+        cout<<"Enter 1 for area of square"<<endl<<"Enter 2 for area of Circle"<<endl<<"Enter 3 for area of Triangle"<<endl;
+        cout<<"Enter 4 for area of rectangle "<<endl<<"Enter 5 for area of trapezium"<<endl<<"Enter any number other than this to exit"<<endl;
         cin>>x;
         if (x==1){
+        	cout<<"=====================SQUARE====================="<<endl;
             cout<<"Enter one side of the square"<<endl;
             cin>>a;
             cout<<"Area of the square = "<<area(a)<<endl;
         }else if(x==2){
+        	cout<<"=====================CIRCLE====================="<<endl;
             cout<<"Enter radius of the circle"<<endl;
             cin>>r;
             cout<< "Area of circle = "<<area(r)<<endl;
         }else if(x==3){
-            cout<<"Enter sides of the triangle"<<endl;
+        	cout<<"=====================TRIANGLE====================="<<endl;
+            cout<<"Enter sides of the triangle(All sides in integer)"<<endl;
             cin>>a>>b>>c;
             cout<<endl<<"Area of triangle = "<<area(a,b,c)<<endl;
         }else if(x==4){
+        	cout<<"=====================RECTANGLE====================="<<endl;
             cout<<"Enter sides of the rectangle"<<endl;
             cin>>r>>s;
             cout<<endl<<"Area of rectangle = "<<area(r,s)<<endl;
         }else if(x==5){
+        	cout<<"=====================TRAPEZIUM====================="<<endl;
             cout<<"Enter the perpendicular distance between the parallel sides and then enter the lengths of parallel sidess of the trapezium"<<endl;
             cin>>r>>s>>t;
             cout<<"Area of trapezium = "<<area(r,s,t)<<endl;
@@ -70,7 +74,14 @@ int main() {
             cout<<"EXIT";
             break;
         }
-        cout<<"Give input or exit with the inputs"<<endl;
+        cout<<"Enter 1 to CONTINUE or any other key to EXIT"<<endl<<">>> ";
+        cin>>y;
+        if(y==1){
+
+        }else{
+        	cout<<"THANK YOU";
+        	break;
+        }
     }
 	return 0;
 }

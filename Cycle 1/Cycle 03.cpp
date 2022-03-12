@@ -1,12 +1,10 @@
 #include <iostream>
-#include <string>
 using namespace std;
-
 int count=101;
-
-class bank
-{
-	char cust_name[50], acc_type[50];
+class bank{
+	char cust_name[50];
+	char type[50];
+	char acc_type[50];
 	float acc_no;
 	float balance;
 public:
@@ -16,27 +14,29 @@ public:
 	void balancecheck();
 	void statement();
 };
-
-
-void bank::addaccount()
-{
+void bank::addaccount(){
 	acc_no=count;
 	cout <<"Enter the account holder name : ";
 	cin >>cust_name;
-	cout <<"Enter 'savings' for Savings account and 'current' for a current account : ";
+	cout <<"Enter the type of account needed : ";
 	cin>>acc_type;
-	cout <<"Enter the total deposited amount(minimum 500) : ";
+	cout <<"Enter the total deposited amount above 500 : ";
 	cin>>balance;
-	cout<<"AC No : "<<acc_no;
+	while(balance<=500){
+		cout <<"Enter the total deposited amount again above 500 : ";
+		cin>>balance;
+	}
+	cout<<">>> YOUR ACCOUNT NUMBER : "<<acc_no;
 }
 
 void bank ::withdraw(){
 	int b;
+	cout<<"===========WITHDRAW==========="<<endl;
 	cout<<"Enter the amount to withdraw : ";
 	cin>>b;
 	if(balance>= (b+500)){
 		balance=balance-b;
-		cout<<b<<"Rs withdrawed new balance is "<<balance<<endl;
+		cout<<b<<"Rs withdrawed new balance is "<<balance<<"Rs"<<endl;
 	}else{
 		cout<<"Insufficient balance";
 	}
@@ -44,33 +44,36 @@ void bank ::withdraw(){
 void bank :: deposit()
 {
 	float b;
+	cout<<"=========DEPOSIT========="<<endl;
 	cout<<"Enter the amount to deposit : ";
 	cin >>b;
 	balance=balance+b;
-	cout<<b<<"Rs deposoted and new balance : "<<balance;
+	cout<<b<<"Rs deposoted and new balance : "<<balance<<"Rs";
 
 }
 
 void bank::balancecheck(){
-	cout<<"Balance : "<<balance;
+	cout<<"=========BALANCE========="<<endl;
+	cout<<"Balance : "<<balance<<"Rs";
 }
 void bank::statement(){
-	cout<<"Name : "<<cust_name;
-	cout<<"\nAC No : "<<acc_no;
+	cout<<"====================================="<<endl;
+	cout<<"Name      : "<<cust_name;
+	cout<<"\nAC No   : "<<acc_no;
 	cout<<"\nAC Type : "<<acc_type;
 	cout<<"\nBalance : "<<balance;
+	cout<<"====================================="<<endl;
 }
-
 int main(){
 	bank cust[count];
-	int n=0, ac_no;
+	int n=0, no;
 	while(n<=5){
 		cout<<"\n============Welcome to SBI============"<<"\n===SELECT THE TRANSACTION YOU NEED===";
-		cout<<"\n1 : Add an account ";
-		cout<<"\n2 : Withdraw amount";
-		cout<<"\n3 : Deposit amount ";
-		cout<<"\n4 : Balance check";
-		cout<<"\n5 : Bank Statement ";
+		cout<<"\n   1	: Add an account ";
+		cout<<"\n   2	: Withdraw amount";
+		cout<<"\n   3	: Deposit amount ";
+		cout<<"\n   4	: Balance check";
+		cout<<"\n   5	: Bank Statement ";
 		cout<<"\nAny other key : EXIT";
 		cout<<endl<<"Give your input : ";
 		cin>>n;
@@ -78,22 +81,27 @@ int main(){
 			cust[count].addaccount();
 			count++;
 		}
-		else if(1<n and n<7)
-		{
+		else if(1<n and n<7){
 			cout<<"Enter the AC No : ";
-			cin>>ac_no;
-			if(ac_no>(count-1))
-			{
+			cin>>no;
+			if(no>(count-1)){
 				cout<<"AC No not match.";
 			}else{
-				if(n==2)
-					cust[ac_no].withdraw();
-				else if(n==3)
-					cust[ac_no].deposit();
-				else if(n==4)
-					cust[ac_no].balancecheck();
-				else if(n==5)
-					cust[ac_no].statement();
+				if(n==2){
+					cust[no].withdraw();
+				}
+
+				else if(n==3){
+					cust[no].deposit();
+				}
+
+				else if(n==4){
+					cust[no].balancecheck();
+				}
+
+				else if(n==5){
+					cust[no].statement();
+				}
 			}
 		}else{
 			cout<<"Thank You for using SBI";
