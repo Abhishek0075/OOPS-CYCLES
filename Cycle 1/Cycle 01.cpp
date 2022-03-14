@@ -81,6 +81,7 @@ void set::display(void){
 }
 int main() {
 	int x,i,j,e;
+	i=0;
 	cout<<"Enter the number of students"<<endl;
 	cin>>x;
 	set A[x];
@@ -90,11 +91,11 @@ int main() {
 			cout<<"Enter 0 to exit or any other number to continue input of details : ";
 			cin>>e;
 		}
-	for(j=0;j<=i;j++){
+	for(j=0;j<i;j++){
 		A[j].average();
 		A[j].display();
 		A[j].calcGrade();
-		cout<<endl;
+		cout<<endl<<endl;
 	}
 	return 0;
 }

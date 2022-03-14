@@ -2,7 +2,6 @@
 #include <cstring>
 
 using namespace std;
-
 class String
 {
 	char *str;
