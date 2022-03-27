@@ -17,7 +17,9 @@ public:
 		str = new char[length+1];
 		strcpy(str,s);
 	}
-	void get(){cin>>str;}
+	void get(){
+		cin>>str;
+		}
 	void display(){cout<<str<<endl;}
 	void concate(String a,String b);
 	void stlength();
@@ -48,9 +50,7 @@ void String::compare(String s1, String s2)
 	else
 		cout<<s2.str<<" is smaller than "<<s1.str<<"\n";
 }
-
-int main()
-{
+int main(){
 	String Str1, Str2, Str3;
 	cout<<"Enter the first string : ";
 	Str1.get();
