@@ -5,7 +5,7 @@ class bank{
 	char cust_name[50];
 	char type[50];
 	char acc_type[50];
-	float acc_no;
+	int acc_no;
 	float balance;
 public:
 	void addaccount();
@@ -32,6 +32,7 @@ void bank::addaccount(){
 void bank ::withdraw(){
 	int b;
 	cout<<"===========WITHDRAW==========="<<endl;
+	cout<<"Your balance = "<<balance<<endl;
 	cout<<"Enter the amount to withdraw : ";
 	cin>>b;
 	if(balance>= (b+500)){
@@ -48,7 +49,7 @@ void bank :: deposit()
 	cout<<"Enter the amount to deposit : ";
 	cin >>b;
 	balance=balance+b;
-	cout<<b<<"Rs deposoted and new balance : "<<balance<<"Rs";
+	cout<<b<<"Rs deposited and new balance is "<<balance<<"Rs";
 
 }
 
@@ -58,11 +59,11 @@ void bank::balancecheck(){
 }
 void bank::statement(){
 	cout<<"====================================="<<endl;
-	cout<<"Name      : "<<cust_name;
+	cout<<"Name     : "<<cust_name;
 	cout<<"\nAC No   : "<<acc_no;
 	cout<<"\nAC Type : "<<acc_type;
 	cout<<"\nBalance : "<<balance;
-	cout<<"====================================="<<endl;
+	cout<<"\n====================================="<<endl;
 }
 int main(){
 	bank cust[count];
@@ -82,10 +83,10 @@ int main(){
 			count++;
 		}
 		else if(1<n and n<7){
-			cout<<"Enter the AC No : ";
+			cout<<"Enter the Account number : ";
 			cin>>no;
 			if(no>(count-1)){
-				cout<<"AC No not match.";
+				cout<<"Incorrect Account number ";
 			}else{
 				if(n==2){
 					cust[no].withdraw();
