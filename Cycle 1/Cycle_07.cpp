@@ -22,7 +22,18 @@ class matrix{
     friend matrix add_mat(matrix &a,matrix &b);
     friend matrix multi_mat(matrix &a,matrix &b);
     friend int trace_mat(matrix a);
+	void transpose(void);
 };
+void matrix::transpose(void){
+    int temp=0;
+    for(int i=0;i<d1;i++){
+        for(int j=0;j<d2;j++){
+            temp=p[j][i];
+            cout<<temp<<" ";
+        }
+        cout<<endl;
+    }
+}
 matrix add_mat(matrix &a,matrix &b){
     matrix c(a.d1,a.d2);
     for(int i=0;i<a.d1;i++){
@@ -56,51 +67,68 @@ int trace_mat(matrix a){
 int main(){
     int value1,value2,a,b,c,d,x=1;
     matrix C,D;
-    while(x>=1 or x<=3){
+    while(x>=1 or x<=4){
+		cout<<"===============SELECT YOUR OPERATION==============="<<endl;
         cout<<"Enter 1 for addition"<<endl<<"Enter 2 for multiplication";
-        cout<<endl<<"Enter 3 for trace"<<endl<<"Enter any other key to EXIT"<<endl;
+        cout<<endl<<"Enter 3 for trace"<<endl<<"Enter 4 for transpose"<<endl<<"Enter any other key to EXIT"<<endl;
         cin>>x;
-        if(x<1 or x>3){
+        if(x<1 or x>4){
             cout<<"************THANK YOU FOR USING************"<<endl;
             break;
         }else if(x==1 or x==2){ 
-            cout<<"Enter the dimensions of matrix 1 :-\n";
-            cin>>a>>b;
-            matrix A(a,b);
-            cout<<"Enter the dimensions of matrix 2 :-\n";
-            cin>>c>>d;
-            matrix B(c,d);
-            cout<<"Enter values of matrix 1 :-"<<endl;
-            for(int i=0;i<a;i++){
-                for(int j=0;j<b;j++){
-                    cin>>value1;
-                    A.in_element(i,j,value1);
-                }
-            }
-            cout<<"Enter values of matrix 2 :-"<<endl;
-            for(int i=0;i<c;i++){
-                for(int j=0;j<d;j++){
-                    cin>>value2;
-                    B.in_element(i,j,value2);
-                }
-            }
+			cout<<"Enter the dimensions of matrix 1 :-\n";
+			cin>>a>>b;
+			matrix A(a,b);
+			cout<<"Enter the dimensions of matrix 2 :-\n";
+			cin>>c>>d;
+			matrix B(c,d);
             if(x==1){
                 if(a==c and b==d){
-                    C=add_mat(A,B);
-                    cout<<endl;
-                    for(int i=0;i<a;i++){
-                        for(int j=0;j<d;j++){
-                            cout<<C.show_element(i,j)<<" ";
-                        }
-                        cout<<endl;
-                    }
-                }else{
-                    cout<<"The dimensions doesn't support addition of matrices "<<endl;
-                }
+				cout<<"Enter values of matrix 1 :-"<<endl;
+				for(int i=0;i<a;i++){
+					for(int j=0;j<b;j++){
+						cin>>value1;
+						A.in_element(i,j,value1);
+					}
+				}
+				cout<<"Enter values of matrix 2 :-"<<endl;
+				for(int i=0;i<c;i++){
+					for(int j=0;j<d;j++){
+						cin>>value2;
+						B.in_element(i,j,value2);
+					}
+				}
+				C=add_mat(A,B);
+				cout<<endl;
+				cout<<"===========| SUM |==========="<<endl;
+				for(int i=0;i<a;i++){
+					for(int j=0;j<d;j++){
+						cout<<C.show_element(i,j)<<" ";
+					}
+					cout<<endl;
+					}
+				}else{
+					cout<<"The dimensions doesn't support addition of matrices "<<endl;
+				}
             }else if(x==2){
                 if(b==c){
+					cout<<"Enter values of matrix 1 :-"<<endl;
+					for(int i=0;i<a;i++){
+						for(int j=0;j<b;j++){
+							cin>>value1;
+							A.in_element(i,j,value1);
+						}
+					}
+					cout<<"Enter values of matrix 2 :-"<<endl;
+					for(int i=0;i<c;i++){
+						for(int j=0;j<d;j++){
+							cin>>value2;
+							B.in_element(i,j,value2);
+						}
+					}
                     C=multi_mat(A,B);
                     cout<<endl;
+					cout<<"===========| PRODUCT |==========="<<endl;
                     for(int i=0;i<a;i++){
                         for(int j=0;j<d;j++){
                             cout<<C.show_element(i,j)<<" ";
@@ -112,23 +140,42 @@ int main(){
                 }
             }
         }else{
-            cout<<"Enter the dimensions of matrix :-\n";
-            cin>>a>>b;
-            matrix D(a,b);
-            if(a==b){
-                cout<<"Enter values of matrix :-"<<endl;
-                for(int i=0;i<a;i++){
-                    for(int j=0;j<b;j++){
-                        cin>>value1;
-                        D.in_element(i,j,value1);
-                    }
-                }                    
-                int result;
-                result=trace_mat(D);
-                cout<<"The trace : "<<endl<<">>> "<<result<<endl;
-            }else{
-                cout<<"The dimensions does't support calculating Trace of a matrix"<<endl;
-            }
+			if(x==3){
+				cout<<"Enter the dimensions of matrix :-\n";
+				cin>>a>>b;
+				matrix D(a,b);
+				if(a==b){
+					cout<<"Enter values of matrix :-"<<endl;
+					for(int i=0;i<a;i++){
+						for(int j=0;j<b;j++){
+							cin>>value1;
+							D.in_element(i,j,value1);
+						}
+					}                    
+					int result;
+					result=trace_mat(D);
+					cout<<"===========| TRACE |==========="<<endl;
+					cout<<"The trace : "<<endl<<">>> "<<result<<endl;
+				}else{
+					cout<<"The dimensions does't support calculating Trace of a matrix"<<endl;
+				}
+			}else if(x==4){
+				cout<<"Enter the dimensions of matrix :-\n";
+				cin>>a>>b;
+				matrix D(a,b);
+				if(a==b){
+					cout<<"Enter values of matrix :-"<<endl;
+					for(int i=0;i<a;i++){
+						for(int j=0;j<b;j++){
+							cin>>value1;
+							D.in_element(i,j,value1);
+						}
+					}
+					cout<<"===========| TRANSPOSE |==========="<<endl;
+					cout<<endl<<"The transpose :\n";
+					D.transpose();
+				}
+			}
         }
     }
     return 0;
