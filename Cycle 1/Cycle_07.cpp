@@ -63,7 +63,7 @@ int main(){
         if(x<1 or x>3){
             cout<<"************THANK YOU FOR USING************"<<endl;
             break;
-        }else if(x==1 or x==2){
+        }else if(x==1 or x==2){ 
             cout<<"Enter the dimensions of matrix 1 :-\n";
             cin>>a>>b;
             matrix A(a,b);
