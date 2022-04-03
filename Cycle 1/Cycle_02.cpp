@@ -26,7 +26,7 @@ float area(float a,float b){  //rectangle
 }
 float area(int a,int b,int c){ //Triangle
     float s,area;
-	s=(a+b+c)/2;
+	s=float(a+b+c)/2;
     area=sqrt(s*(s-a)*(s-b)*(s-c));
 	return area;
 }

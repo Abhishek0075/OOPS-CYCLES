@@ -28,7 +28,6 @@ MATRIX::MATRIX(int x, int y)
 		m[i]=new int [d2];
 	}
 }
-
 int MATRIX::get(int i, int j)
 {
 	return(m[i][j]);
@@ -36,9 +35,9 @@ int MATRIX::get(int i, int j)
 
 void MATRIX::matrix_add(MATRIX &a, MATRIX &b)
 {
-	for(int i=0;i<d1;i++)
+	for(int i=0;i<a.d1;i++)
 	{
-		for(int j=0;j<d2;j++)
+		for(int j=0;j<a.d2;j++)
 		{
 			m[i][j]=a.m[i][j]+b.m[i][j];
 			cout<<m[i][j]<<"  ";
@@ -47,12 +46,10 @@ void MATRIX::matrix_add(MATRIX &a, MATRIX &b)
 	}
 }
 
-void MATRIX::matrix_mult(MATRIX &a, MATRIX &b)
-{
-	for(int i=0;i<a.d1;i++)
-	{
-		for(int j=0;j<b.d2;j++)
-		{
+void MATRIX::matrix_mult(MATRIX &a, MATRIX &b){
+	for(int i=0;i<a.d2;i++){
+		for(int j=0;j<b.d1;j++){
+			m[i][j]=0;
 			for(int k=0;k<b.d1;k++)
 			{
 				m[i][j]=(m[i][j])+(a.m[i][k])*(b.m[k][j]);
@@ -84,8 +81,12 @@ int MATRIX::matrx_trace(int n)
 	}
 	return sum;
 }
+
+
+
 int main() {
 	int R1, R2, C1, C2;
+
 	cout<<"Enter the number of rows and columns of first matrix : ";
 	cin>>R1>>C1;
 	MATRIX A(R1,C1);
@@ -99,6 +100,8 @@ int main() {
 			A.input(i, j, x);
 		}
 	}
+
+
 	cout<<"Enter the row and column of second matrix : ";
 	cin>>R2>>C2;
 	MATRIX B(R2,C2);
@@ -112,6 +115,7 @@ int main() {
 			B.input(i2, j2, x2);
 		}
 	}
+
 	if(R1==R2 and C1==C2)
 	{
 		MATRIX S1(R1,C1);
@@ -119,11 +123,13 @@ int main() {
 		S1.matrix_add(A, B);
 	}
 	else
-		cout<<"Matrix with different dimension";
+		cout<<"Matrices of different dimensions";
+
+		
 	if(C1==R2)
 	{
 		MATRIX S2(R1,C2);
-		cout<<"Product of the matrix : ";
+		cout<<"Product of the matrix : "<<endl;
 		S2.matrix_mult(A, B);
 	}
 	cout<<"\nTranspose of matrix : "<<endl;
