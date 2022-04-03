@@ -26,8 +26,8 @@ class matrix{
 };
 void matrix::transpose(void){
     int temp=0;
-    for(int i=0;i<d1;i++){
-        for(int j=0;j<d2;j++){
+    for(int i=0;i<d2;i++){
+        for(int j=0;j<d1;j++){
             temp=p[j][i];
             cout<<temp<<" ";
         }
@@ -163,18 +163,16 @@ int main(){
 				cout<<"Enter the dimensions of matrix :-\n";
 				cin>>a>>b;
 				matrix D(a,b);
-				if(a==b){
-					cout<<"Enter values of matrix :-"<<endl;
-					for(int i=0;i<a;i++){
-						for(int j=0;j<b;j++){
-							cin>>value1;
-							D.in_element(i,j,value1);
-						}
+				cout<<"Enter values of matrix :-"<<endl;
+				for(int i=0;i<a;i++){
+					for(int j=0;j<b;j++){
+						cin>>value1;
+						D.in_element(i,j,value1);
 					}
-					cout<<"===========| TRANSPOSE |==========="<<endl;
-					cout<<endl<<"The transpose :\n";
-					D.transpose();
 				}
+				cout<<"===========| TRANSPOSE |==========="<<endl;
+				cout<<endl<<"The transpose :\n";
+				D.transpose();
 			}
         }
     }
