@@ -9,80 +9,78 @@ class vector{
         x=0;
         y=0;
         z=0;
+        magnt=0;
     }
     vector(float a,float b,float c){
         x=a;
         y=b;
         z=c;
-    }
-    double mag(){
         magnt=sqrt((x*x)+(y*y)+(z*z));
-        return magnt;
     }
     void display(){
         cout<<x<<"i";
         if(y<0){
-            cout<<" -"<<y<<"j";
+            cout<<y<<"j";
         }else{
             cout<<" +"<<y<<"j";
         }
         if(z<0){
-            cout<<" -"<<z<<"z";
+            cout<<z<<"z";
         }else{
             cout<<" +"<<z<<"z";
         }
     }
-    friend  int operator==(vector &a,vector &b);
-    friend  int operator!=(vector &a,vector &b);
-    friend  int operator<(vector &a,vector &b);
-    friend  int operator<=(vector &a,vector &b);
-    friend  int operator>(vector &a,vector &b);
-    friend  int operator>=(vector &a,vector &b);
+    int operator==(vector &a);
+    int operator!=(vector &a);
+    int operator<(vector &a);
+    int operator<=(vector &a);
+    int operator>(vector &a);
+    int operator>=(vector &a);
 };
- int operator==(vector &a,vector &b){
-    if((a.mag()==b.mag())){
+ int vector::operator==(vector &a){
+    if(magnt==a.magnt){
         return 1;
     }else{
         return 0;
     }
 }
- int operator!=(vector &a,vector &b){
-    if((a.mag())!=(b.mag())){
+ int vector::operator!=(vector &a){
+    if(magnt!=a.magnt){
         return 1;
     }else{
         return 0;
     }
 }
-int operator <(vector &a,vector &b){
-    if((a.mag())< (b.mag())){
+int vector::operator <(vector &a){
+    if(magnt< a.magnt){
         return 1;
     }else{
         return 0;
     }
 }
-int operator <=(vector &a,vector &b){
-    if((a.mag())<=(b.mag())){
+int vector::operator <=(vector &a){
+    if(magnt<=a.magnt){
         return 1;
     }else{
         return 0;
     }
 }
-int operator >(vector &a,vector &b){
-    if((a.mag())>(b.mag())){
+int vector::operator >(vector &a){
+    if(magnt>a.magnt){
         return 1;
     }else{
         return 0;
     }
 }
-int operator >=(vector &a,vector &b){
-    if((a.mag())>(b.mag())){
+int vector::operator >=(vector &a){
+    if(magnt>a.magnt){
         return 1;
     }else{
         return 0;
     }
 }
 int main(){
-    int x;
+    int x,breaker;
     float a,b,c,d,e,f;
     x=3;
     while(x>1 and x<6){
@@ -92,7 +90,7 @@ int main(){
         cout<<"Any other for EXIT"<<endl;
         cout<<">>> ";
         cin>>x;
-        if(x>6){
+        if(x<1 and x>6){
             cout<<"==========THANK YOU FOR USING==========";
             break;
         }
@@ -183,14 +181,12 @@ int main(){
                 B.display();
             }
         }
-    int y;
-    cout<<"\nPRESS 1 TO CONTINUE OR ANY OTHER TO EXIT"<<endl;
-    cin>>y;
-    if(y!=1){
-        cout<<"==========THANK YOU FOR USING==========";
-        break;
-    }
+        cout<<"\nPRESS 1 TO CONTINUE OR ANY OTHER TO EXIT"<<endl;
+        cin>>breaker;
+        if(breaker==1){
+            cout<<"==========THANK YOU FOR USING==========";
+            break;
+        }
     } 
-    
     return 0;
 }

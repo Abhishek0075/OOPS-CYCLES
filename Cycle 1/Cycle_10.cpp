@@ -72,16 +72,16 @@ int main() {
 			prdt[count].displayitems();
 			prdt[count].sumup();
 		}else{
-			cout<<"Thank You"<<endl;
+			cout<<"********Thank You********"<<endl;
 			break;
 		}
 		cout<<"========================================="<<endl;
-		cout<<"       DO YOU WANT TO CONTINUE"<<endl<<"Press 1 to continue or any other to exit  "<<endl<<">>>>";
+		cout<<"    **DO YOU WANT TO CONTINUE**"<<endl<<"Press 1 to continue or any other to exit  "<<endl<<">>>> ";
 		cin>>y;
 		if(y==1){
 
 		}else{
-			cout<<"Thank You"<<endl;
+			cout<<"********Thank You********"<<endl;
 			break;
 		}
 	}

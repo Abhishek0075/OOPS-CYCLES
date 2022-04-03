@@ -19,11 +19,10 @@ class matrix{
     int show_element(int i,int j){
         return p[i][j];
     }
-    friend matrix add_mat(matrix &a,matrix &b);
-    friend matrix multi_mat(matrix &a,matrix &b);
-    friend int trace_mat(matrix a);
+    friend matrix operator +(matrix &a,matrix &b);
+    friend matrix operator *(matrix &a,matrix &b);
 };
-matrix add_mat(matrix &a,matrix &b){
+matrix operator +(matrix &a,matrix &b){
     matrix c(a.d1,a.d2);
     for(int i=0;i<a.d1;i++){
         for(int j=0;j<a.d2;j++){
@@ -32,7 +31,7 @@ matrix add_mat(matrix &a,matrix &b){
     }
     return c;
 }
-matrix multi_mat(matrix &a,matrix &b){
+matrix operator *(matrix &a,matrix &b){
     matrix c(a.d1,b.d2);
     int p_sum;
     for(int i=0;i<a.d1;i++){
@@ -46,24 +45,17 @@ matrix multi_mat(matrix &a,matrix &b){
     }
     return c;
 }
-int trace_mat(matrix a){
-    int sum=0;
-    for(int i=0;i<a.d1;i++){
-        sum=sum+a.p[i][i];
-    }
-    return sum;
-}
 int main(){
     int value1,value2,a,b,c,d,x=1;
-    matrix C,D;
-    while(x>=1 or x<=3){
+    matrix C;
+    while(x==1 or x==2){
         cout<<"Enter 1 for addition"<<endl<<"Enter 2 for multiplication";
-        cout<<endl<<"Enter 3 for trace"<<endl<<"Enter any other key to EXIT"<<endl;
+        cout<<endl<<"Enter any other key to EXIT"<<endl;
         cin>>x;
-        if(x<1 or x>3){
+        if(x<1 or x>2){
             cout<<"************THANK YOU FOR USING************"<<endl;
             break;
-        }else if(x==1 or x==2){
+        }else{
             cout<<"Enter the dimensions of matrix 1 :-\n";
             cin>>a>>b;
             matrix A(a,b);
@@ -86,7 +78,7 @@ int main(){
             }
             if(x==1){
                 if(a==c and b==d){
-                    C=add_mat(A,B);
+                    C=A+B;
                     cout<<endl;
                     for(int i=0;i<a;i++){
                         for(int j=0;j<d;j++){
@@ -99,7 +91,7 @@ int main(){
                 }
             }else if(x==2){
                 if(b==c){
-                    C=multi_mat(A,B);
+                    C=A*B;
                     cout<<endl;
                     for(int i=0;i<a;i++){
                         for(int j=0;j<d;j++){
@@ -110,24 +102,6 @@ int main(){
                 }else{
                     cout<<"The dimensions doesn't support multiplication of matrices "<<endl;
                 }
-            }
-        }else{
-            cout<<"Enter the dimensions of matrix :-\n";
-            cin>>a>>b;
-            matrix D(a,b);
-            if(a==b){
-                cout<<"Enter values of matrix :-"<<endl;
-                for(int i=0;i<a;i++){
-                    for(int j=0;j<b;j++){
-                        cin>>value1;
-                        D.in_element(i,j,value1);
-                    }
-                }                    
-                int result;
-                result=trace_mat(D);
-                cout<<"The trace : "<<endl<<">>> "<<result<<endl;
-            }else{
-                cout<<"The dimensions does't support calculating Trace of a matrix"<<endl;
             }
         }
     }
