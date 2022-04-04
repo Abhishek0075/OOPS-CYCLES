@@ -40,6 +40,7 @@ void exchange(class1 &a,class2 &b){
 int main(){
 	class1 A;
 	class2 B;
+	cout<<"=============EXCHANGING TEST============="<<endl;
 	A.entry();
 	B.entry();
 	cout<<"Value before exchange : "<<endl;
