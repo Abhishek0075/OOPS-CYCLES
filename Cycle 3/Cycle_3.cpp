@@ -18,6 +18,6 @@ int main(){
     }catch(float i){
         cout<<"Exception caught : denominator = "<<x<<endl;
     }
-    cout<<".......END.......";
+    cout<<"................END..............."<<endl;
 
 }
