@@ -13,7 +13,7 @@ public:
 		return (p[i][j]);
 	}
 	~matrix();
-	friend matrix add_mat(matrix &a,matrix &b);
+	friend void add_mat(matrix &a,matrix &b);
 };
 matrix::~matrix(){
 	cout<<endl<<"Memory released"<<endl;
@@ -32,16 +32,17 @@ matrix::matrix(int x,int y){
 		p[i]=new int [d2];
 	}
 }
-matrix add_mat(matrix &a,matrix &b){
-    matrix c(a.d1,a.d2);
+void add_mat(matrix &a,matrix &b){
+    int temp;
+    cout<<"===The sum of matrices==="<<endl<<" ";
     for(int i=0;i<a.d1;i++){
         for(int j=0;j<a.d2;j++){
-            c.p[i][j]=a.p[i][j]+b.p[i][j];
+            temp=a.p[i][j]+b.p[i][j];
+            cout<<temp<<" ";
         }
+        cout<<endl<<" ";
     }
-    return c;
 }
-
 
 int main() {
 	int m,n;
@@ -81,18 +82,7 @@ int main() {
 		}
 		cout<<endl;
 	}
-	cout<<endl<<A.putelement(0,0);
-	cout<<endl<<B.putelement(0,0)<<endl;
+	add_mat(A,B);
 	
-	C=add_mat(A,B);
-	cout<<endl<<A.putelement(0,0);
-	cout<<endl<<B.putelement(0,0)<<endl;
-	cout<<"The sum of matrices : "<<endl;
-	for(int i=0;i<m;i++){
-		for(int j=0;j<n;j++){
-			cout<<C.putelement(i, j)<<"  ";
-		}
-		cout<<endl;
-	}
 	return 0;
 }
