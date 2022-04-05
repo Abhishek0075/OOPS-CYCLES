@@ -24,14 +24,24 @@ public:
 };
 int main() {
 	Time T1,T2,T3;
-	T1.gettime();
-	T2.gettime();
-	T3.sum(T1,T2);
-	cout<<"T1 = ";
-	T1.puttime();
-	cout<<"T2 = ";
-	T2.puttime();
-	cout<<"T3 = ";
-	T3.puttime();
+	int x=1;
+	while(x==1){
+		T1.gettime();
+		T2.gettime();
+		T3.sum(T1,T2);
+		cout<<"T1 = ";
+		T1.puttime();
+		cout<<"T2 = ";
+		T2.puttime();
+		cout<<"SUM (T1+T2) = ";
+		T3.puttime();
+		cout<<"        DO WANT TO CONTINUE"<<endl;
+		cout<<"1 to CONTINUE and other keys to EXIT"<<endl;
+		cin>>x;
+		if(x!=1){
+			cout<<"****THANK YOU FOR USING****"<<endl;
+			break;
+		}
+	}
 	return 0;
 }
