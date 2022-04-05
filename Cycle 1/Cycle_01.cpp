@@ -82,7 +82,7 @@ void set::display(void){
 int main() {
 	int x,i,j,e;
 	i=0;
-	cout<<"Enter the number of students"<<endl;
+	cout<<">> Enter the number of students"<<endl;
 	cin>>x;
 	set A[x];
 		while(e!=0){
