@@ -26,7 +26,7 @@ void bank::addaccount(){
 		cout <<"Enter the total deposited amount again above 500 : ";
 		cin>>balance;
 	}
-	cout<<">>> YOUR ACCOUNT NUMBER : "<<acc_no;
+	cout<<">>> YOUR ACCOUNT NUMBER : "<<acc_no<<endl;
 }
 
 void bank ::withdraw(){
