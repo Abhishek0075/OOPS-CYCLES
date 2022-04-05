@@ -68,7 +68,7 @@ void bank::statement(){
 int main(){
 	bank cust[count];
 	int n=0, no;
-	while(n<=5){
+	while(n>0 and n<=5){
 		cout<<"\n============Welcome to SBI============"<<"\n===SELECT THE TRANSACTION YOU NEED===";
 		cout<<"\n   1	: Add an account ";
 		cout<<"\n   2	: Withdraw amount";
