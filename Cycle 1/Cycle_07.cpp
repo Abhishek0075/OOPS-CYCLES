@@ -19,12 +19,12 @@ class matrix{
     int show_element(int i,int j){
         return p[i][j];
     }
-    void add_mat(matrix &a,matrix &b);
-    void multi_mat(matrix &a,matrix &b);
-    void trace_mat(void);
-	void transpose(void);
+    void matrix_add(matrix &a,matrix &b);
+    void matrix_mult(matrix &a,matrix &b);
+    void matrix_trace(void);
+	void matrix_transpose(void);
 };
-void matrix::transpose(void){
+void matrix::matrix_transpose(void){
     int temp=0;
     for(int i=0;i<d2;i++){
         for(int j=0;j<d1;j++){
@@ -34,7 +34,7 @@ void matrix::transpose(void){
         cout<<endl;
     }
 }
-void matrix:: add_mat(matrix &a,matrix &b){
+void matrix:: matrix_add(matrix &a,matrix &b){
     int sum=0;
     for(int i=0;i<a.d1;i++){
         for(int j=0;j<a.d2;j++){
@@ -44,7 +44,7 @@ void matrix:: add_mat(matrix &a,matrix &b){
         cout<<endl;
     }
 }
-void matrix:: multi_mat(matrix &a,matrix &b){
+void matrix:: matrix_mult(matrix &a,matrix &b){
     int p_sum;
     for(int i=0;i<a.d1;i++){
         for(int j=0;j<b.d2;j++){
@@ -62,7 +62,7 @@ void matrix:: multi_mat(matrix &a,matrix &b){
         cout<<endl;
     }
 }
-void matrix::trace_mat(void){
+void matrix::matrix_trace(void){
     int sum=0;
     for(int i=0;i<d1;i++){
         sum=sum+p[i][i];
@@ -111,7 +111,7 @@ int main(){
                 if(a==c and b==d){
                     cout<<endl;
                     cout<<"===========| SUM |==========="<<endl;
-                    C.add_mat(A,B);
+                    C.matrix_add(A,B);
 				}else{
 					cout<<"!! The dimensions doesn't support addition of matrices !!"<<endl;
 				}
@@ -120,31 +120,31 @@ int main(){
                     matrix C(a,d);
                     cout<<endl;
 					cout<<"===========| PRODUCT |==========="<<endl;
-                    C.multi_mat(A,B);
+                    C.matrix_mult(A,B);
                 }else{
                     cout<<"!! The dimensions doesn't support multiplication of matrices !!"<<endl;
                 }
             }else if(x==3){
                 if(a==b){
                     cout<<"===========| TRACE OF MATRIX 1 |==========="<<endl;
-                    A.trace_mat();
+                    A.matrix_trace();
                     cout<<"==========================================="<<endl<<endl;
                 }else{
                     cout<<"!! In matrix 1, The dimensions does't support calculating Trace of a matrix !!"<<endl;
                 }
                 if(c==d){
                     cout<<"===========| TRACE OF MATRIX 2 |==========="<<endl;
-                    B.trace_mat();
+                    B.matrix_trace();
                     cout<<"==========================================="<<endl;
                 }else{
                     cout<<"!! In matrix 2, The dimensions does't support calculating Trace of a matrix !!"<<endl;
                 }
             }else if(x==4){
                 cout<<"===========| TRANSPOSE OF MATRIX 1 |==========="<<endl;
-				A.transpose();
+				A.matrix_transpose();
                 cout<<"\n==============================================="<<endl;
                 cout<<"===========| TRANSPOSE OF MATRIX 2 |==========="<<endl;
-				B.transpose();
+				B.matrix_transpose();
                 cout<<"\n==============================================="<<endl;
             }else{
                 break;
