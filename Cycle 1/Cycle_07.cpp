@@ -108,7 +108,7 @@ int main(){
 					cout<<endl;
 					}
 				}else{
-					cout<<"The dimensions doesn't support addition of matrices "<<endl;
+					cout<<"!! The dimensions doesn't support addition of matrices !!"<<endl;
 				}
             }else if(x==2){
                 if(b==c){
@@ -136,7 +136,7 @@ int main(){
                         cout<<endl;
                     }
                 }else{
-                    cout<<"The dimensions doesn't support multiplication of matrices "<<endl;
+                    cout<<"!! The dimensions doesn't support multiplication of matrices !!"<<endl;
                 }
             }
         }else{
@@ -157,7 +157,7 @@ int main(){
 					cout<<"===========| TRACE |==========="<<endl;
 					cout<<"The trace : "<<endl<<">>> "<<result<<endl;
 				}else{
-					cout<<"The dimensions does't support calculating Trace of a matrix"<<endl;
+					cout<<"!! The dimensions does't support calculating Trace of a matrix !!"<<endl;
 				}
 			}else if(x==4){
 				cout<<"Enter the dimensions of matrix :-\n";
