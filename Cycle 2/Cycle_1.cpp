@@ -83,8 +83,15 @@ int main(){
     int x,breaker;
     float a,b,c,d,e,f;
     x=3;
-    while(x>1 and x<6){
-        cout<<"===========SELECT YOUR OPERATION==========="<<endl;
+    while(x>=1 and x<=6){
+        cout<<"========ENTER VECTOR VALUES========"<<endl;
+        cout<<"Enter the values of vector 1 : "<<endl;
+        cin>>a>>b>>c;
+        vector A(a,b,c);
+        cout<<"Enter the values of vector 2 : "<<endl;
+        cin>>d>>e>>f;
+        vector B(d,e,f);
+        cout<<"\n===========SELECT YOUR OPERATION==========="<<endl;
         cout<<"1 for =="<<endl<<"2 for !="<<endl<<"3 for <"<<endl;
         cout<<"4 for <="<<endl<<"5 for >"<<endl<<"6 for >="<<endl;
         cout<<"Any other for EXIT"<<endl;
@@ -94,14 +101,6 @@ int main(){
             cout<<"==========THANK YOU FOR USING==========";
             break;
         }
-                
-        cout<<"Enter the values of vector 1 : "<<endl;
-        cin>>a>>b>>c;
-        vector A(a,b,c);
-        
-        cout<<"Enter the values of vector 2 : "<<endl;
-        cin>>d>>e>>f;
-        vector B(d,e,f);
         if(x==1){
             if(A==B){
                 cout<<"==========RESULT=========="<<endl;
@@ -183,7 +182,7 @@ int main(){
         }
         cout<<"\nPRESS 1 TO CONTINUE OR ANY OTHER TO EXIT"<<endl;
         cin>>breaker;
-        if(breaker==1){
+        if(breaker!=1){
             cout<<"==========THANK YOU FOR USING==========";
             break;
         }
