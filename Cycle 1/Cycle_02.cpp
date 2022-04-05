@@ -79,7 +79,7 @@ int main() {
         if(y==1){
 
         }else{
-        	cout<<"THANK YOU";
+        	cout<<"THANK YOU"<<endl;
         	break;
         }
     }
