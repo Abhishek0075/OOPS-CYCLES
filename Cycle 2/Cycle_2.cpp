@@ -43,7 +43,8 @@ int main(){
     complex C;
     int x=1,breaker;
     while(x==1  or x==2){
-        cout<<"================ OPERATIONS ================"<<"\nPress 1 for addition of two complex numbers"<<endl;
+        cout<<"================ OPERATIONS ================";
+        cout<<"\nPress 1 for addition of two complex numbers"<<endl;
         cout<<"Press 2 for multiplication of two complex numbers"<<endl;
         cout<<"Any other key to EXIT"<<endl;
         cout<<">>> ";
