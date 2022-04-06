@@ -80,17 +80,16 @@ void set::display(void){
 	cout<<"  Grade : ";
 }
 int main() {
-	int x,i,j,e;
+	int x,i,j;
 	i=0;
 	cout<<">> Enter the number of students"<<endl;
 	cin>>x;
 	set A[x];
-		while(e!=0){
-			A[i].input();
-			i=i+1;
-			cout<<"Enter 0 to exit or any other number to continue input of details : ";
-			cin>>e;
-		}
+	while(i<x){
+		A[i].input();
+		i=i+1;
+	}
+	
 	for(j=0;j<i;j++){
 		A[j].average();
 		A[j].display();

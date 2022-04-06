@@ -50,7 +50,6 @@ int main(){
         cout<<">>> ";
         cin>>x;
         if(x !=1 and x !=2){
-            cout<<"********THANK YOU FOR USING**********"<<endl;
             break;
         }
         cout<<"================Complex number 1================\n";
@@ -80,9 +79,9 @@ int main(){
         if(breaker==1){
 
         }else{
-            cout<<"********THANK YOU FOR USING**********"<<endl;
             break;
         }
     }
+    cout<<"********THANK YOU FOR USING**********"<<endl;
     return 0;
 }
