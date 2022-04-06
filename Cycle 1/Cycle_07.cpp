@@ -5,6 +5,12 @@ class matrix{
     int **p;
     public:
     matrix(){}
+    ~matrix(){
+    	for(int i=0;i<d1;i++){
+    		delete p[i];
+    	}
+    	delete p;
+    }
     matrix(int i,int j){
         d1=i;
         d2=j;
@@ -71,7 +77,7 @@ void matrix::matrix_trace(void){
 }
 int main(){
     int value1,value2,a,b,c,d,x=1;
-    matrix C(a,d),D;
+    matrix C,D;
     while(x>=1 or x<=6){
         int breaker;
         cout<<"       DO YOU WANT CONTINUE ?"<<endl;
@@ -109,6 +115,7 @@ int main(){
         if(x>=1 or x<=4){
             if(x==1){
                 if(a==c and b==d){
+                    matrix C(a,d);
                     cout<<endl;
                     cout<<"===========| SUM |==========="<<endl;
                     C.matrix_add(A,B);
