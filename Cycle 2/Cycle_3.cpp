@@ -6,8 +6,7 @@ class vector{
     public:
     vector();
     vector(int *x);
-    friend vector operator *(int a,vector b);
-    friend vector operator *(vector b,int a);
+    friend vector operator *(vector a,vector b);
     friend istream & operator >>(istream &,vector &);
     friend ostream & operator <<(ostream &,vector &);
 };
@@ -21,17 +20,10 @@ vector::vector(int *x){
         v[i]=x[i];
     }
 }
-vector operator *(int a,vector b){
+vector operator *(vector a,vector b){
     vector c;
     for(int i=0;i<size;i++){
-        c.v[i]=a*b.v[i];
-    }
-    return c;
-}
-vector operator *(vector a,int b){
-    vector c;
-    for(int i=0;i<size;i++){
-        c.v[i]=b*a.v[i];
+        c.v[i]=a.v[i]*b.v[i];
     }
     return c;
 }
@@ -49,24 +41,17 @@ istream & operator >>(istream &din,vector &b){
     }
     return (din);
 }
-
-int x[size]={2,4,6};
-
 int main(){
-    vector m;
-    vector n(x);
+    vector m,n,product;
     cout<<"Enter elements of vector m "<<endl;
     cin>>m;
     cout<<endl;
+    cout<<"Enter elements of vector n "<<endl;
+    cin>>n;
     cout<<"m = "<<m<<endl;
     cout<<"n = "<<n<<endl;
-    vector p,q;
-    
-    p=2*m;
-    q=n*2;
-    
     cout<<endl;
-    cout<<"p(2*m) = "<<p<<endl;
-    cout<<"q(n*2) = "<<q<<endl;
+    product=m*n;
+    cout<<"m*n = "<<product<<endl;
     return 0;
 }
