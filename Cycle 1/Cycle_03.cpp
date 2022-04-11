@@ -108,7 +108,7 @@ int main(){
 				}
 			}
 		}else{
-			cout<<"Thank You for using SBI"<<endl;
+			cout<<"    ***Thank You for using SBI***"<<endl;
 		}
 	}
 		return 0;
