@@ -40,7 +40,7 @@ void bank ::withdraw(){
 		balance=balance-b;
 		cout<<"  >> "<<b<<"Rs withdrawed new balance is "<<balance<<"Rs"<<endl;
 	}else{
-		cout<<"  Insufficient balance";
+		cout<<endl<<"   !! Insufficient balance!!";
 	}
 }
 void bank :: deposit()
