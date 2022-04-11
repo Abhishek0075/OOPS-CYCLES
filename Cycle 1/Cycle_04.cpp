@@ -59,7 +59,7 @@ int main(){
 	Str1.get();
 	cout<<"Enter second string : ";
 	Str2.get();
-	cout<<"============Result============\n ";
+	cout<<"============Result============\n";
 	cout<<">> First string : ";
 	Str1.display();
 	cout<<">> Second string : ";
