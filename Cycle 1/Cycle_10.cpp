@@ -29,11 +29,14 @@ void items::purchase(){
 		    if(prdt[i].stock>=y){
     			prdt[i].stock=prdt[i].stock-y;
     			cout<<">> New number of stocks : "<<prdt[i].stock<<endl;
+				break;
 		    }else{
 		        cout<<"!!!! The number of stocks in the inventory in lesser than the need !!!!";
 		    }
 		}
+
 	}
+	cout<<"======Invalid Code======"<<endl;
 }
 void items::stock_add(){
     cout<<"============ADD STOCKS==========="<<endl;
@@ -46,6 +49,7 @@ void items::stock_add(){
 		    cin>>y;
 			prdt[i].stock=prdt[i].stock+y;
 			cout<<">> New number of stock : "<<prdt[i].stock<<endl;
+			break;
 		}
 	}
 }
@@ -72,13 +76,16 @@ void items::sumup(){
 void items::remove(){
 	cout<<"============REMOVE ITEM==========="<<endl;
 	int x;
-	cout<<"Enter the code to be deleted :";
+	cout<<"Enter the code to be deleted : ";
 	cin>>x;
 	for(int i=0;i<count;i++){
 		if(prdt[i].itemcode==x){
-			prdt[i].stock=0;
+			prdt[i].itemprice=0;
+			break;
 		}
 	}
+	
+
 }
 void items::displayitems(){
 	int j=0;
@@ -130,7 +137,7 @@ int main() {
 		if(y==1){
 
 		}else{
-			cout<<"********Thank You********"<<endl;
+			cout<<"*************THANK YOU*************"<<endl;
 			break;
 		}
 	}
