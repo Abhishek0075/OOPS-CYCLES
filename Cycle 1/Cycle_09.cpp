@@ -8,8 +8,6 @@
 
 #include <iostream>
 using namespace std;
-#include <iostream>
-using namespace std;
 class test{
 	int code;
 	static int count;
