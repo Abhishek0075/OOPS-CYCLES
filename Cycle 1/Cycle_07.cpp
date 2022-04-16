@@ -79,13 +79,7 @@ int main(){
     int value1,value2,a,b,c,d,x=1;
     matrix C,D;
     while(x>=1 or x<=6){
-        int breaker;
-        cout<<"       DO YOU WANT CONTINUE ?"<<endl;
-        cout<<" 1 to CONTINUE and other keys to EXIT"<<endl;
-        cin>>breaker;
-        if(breaker!=1){
-            break;
-        }
+        
         cout<<"Enter the dimensions of matrix 1 :-\n";
         cin>>a>>b;
         matrix A(a,b);
@@ -120,7 +114,8 @@ int main(){
                     cout<<"===========| SUM |==========="<<endl;
                     C.matrix_add(A,B);
 				}else{
-					cout<<"!! The dimensions doesn't support addition of matrices !!"<<endl;
+                    cout<<"============================| SUM |============================"<<endl;
+					cout<<"   !! The dimensions doesn't support addition of matrices !!"<<endl;
 				}
             }else if(x==2){
                 if(b==c){
@@ -129,7 +124,8 @@ int main(){
 					cout<<"===========| PRODUCT |==========="<<endl;
                     C.matrix_mult(A,B);
                 }else{
-                    cout<<"!! The dimensions doesn't support multiplication of matrices !!"<<endl;
+                    cout<<"============================| PRODUCT |============================"<<endl;
+                    cout<<"  !! The dimensions doesn't support multiplication of matrices !!"<<endl;
                 }
             }else if(x==3){
                 if(a==b){
@@ -137,14 +133,16 @@ int main(){
                     A.matrix_trace();
                     cout<<"==========================================="<<endl<<endl;
                 }else{
-                    cout<<"!! In matrix 1, The dimensions does't support calculating Trace of a matrix !!"<<endl;
+                    cout<<"==============================| TRACE OF MATRIX 1 |=============================="<<endl;
+                    cout<<"  !! In matrix 1, The dimensions does't support calculating Trace of a matrix !!"<<endl;
                 }
                 if(c==d){
                     cout<<"===========| TRACE OF MATRIX 2 |==========="<<endl;
                     B.matrix_trace();
                     cout<<"==========================================="<<endl;
                 }else{
-                    cout<<"!! In matrix 2, The dimensions does't support calculating Trace of a matrix !!"<<endl;
+                    cout<<"==============================| TRACE OF MATRIX 2 |=============================="<<endl;
+                    cout<<"  !! In matrix 2, The dimensions does't support calculating Trace of a matrix !!"<<endl;
                 }
             }else if(x==4){
                 cout<<"===========| TRANSPOSE OF MATRIX 1 |==========="<<endl;
@@ -157,6 +155,13 @@ int main(){
                 break;
             }
         }else{
+            break;
+        }
+        int breaker;
+        cout<<endl<<"       DO YOU WANT CONTINUE ?"<<endl;
+        cout<<" 1 to CONTINUE and other keys to EXIT"<<" >> "<<endl;
+        cin>>breaker;
+        if(breaker!=1){
             break;
         }
     }

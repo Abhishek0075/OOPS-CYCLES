@@ -35,7 +35,7 @@ class sports:virtual public student{
     }
     void show_grace(void){
         cout<<"  =======GRACE MARK======"<<endl;
-        cout<<"  >> Grace mark : "<<grace<<endl;
+        cout<<"  >> Sports grace mark : "<<grace<<endl;
     }
 };
 class result:public sports,public test{
@@ -43,7 +43,7 @@ class result:public sports,public test{
     float total;
     public:
     void show_total(void){
-        cout<<"***************TOTAL MARK***************"<<endl<<endl;
+        cout<<"************TOTAL MARK************"<<endl<<endl;
         total=exam1+exam2+grace;
         show_no();
         show_exam();
@@ -59,14 +59,33 @@ int main(){
     int x;
     float a,b,c;
     cout<<"Enter your Roll number : "<<endl;
+    cout<<">>> ";
     cin>>x;
     cout<<"Enter marks of 1st and 2nd exam : "<<endl;
-    cin>>a>>b;
-    cout<<"Enter grace mark : "<<endl;
+    cout<<">>> ";
+    cin>>a;
+    cout<<">>> ";
+    cin>>b;
+    while(a>100 or b>100){
+        cout<<"      !! INVALID MARKS !!"<<endl;
+        cout<<"Enter marks of 1st and 2nd exam : "<<endl;
+        cout<<">>> ";
+        cin>>a;
+        cout<<">>> ";
+        cin>>b;
+    }
+    cout<<"Enter grace mark in sports : "<<endl<<">>> ";
     cin>>c;
+    while(c>50){
+        cout<<"      !! INVALID MARKS !!"<<endl;
+        cout<<"Enter grace mark in sports : "<<endl;
+        cout<<">>> ";
+        cin>>c;
+    }
     std_1.input_no(x);
     std_1.input_marks(a,b);
     std_1.input_grace(c);
+    cout<<endl;
     std_1.show_total();
     return 0;
 }

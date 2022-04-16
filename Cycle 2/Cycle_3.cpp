@@ -37,21 +37,32 @@ ostream & operator <<(ostream &dout,vector &b){
 }
 istream & operator >>(istream &din,vector &b){
     for(int i=0;i<size;i++){
+        cout<<">> ";
         din>>b.v[i];
     }
     return (din);
 }
 int main(){
     vector m,n,product;
-    cout<<"Enter elements of vector m "<<endl;
-    cin>>m;
-    cout<<endl;
-    cout<<"Enter elements of vector n "<<endl;
-    cin>>n;
-    cout<<"m = "<<m<<endl;
-    cout<<"n = "<<n<<endl;
-    cout<<endl;
-    product=m*n;
-    cout<<"m*n = "<<product<<endl;
+    int x=1;
+    while (x==1){
+        cout<<"Enter elements of vector m "<<endl;
+        cin>>m;
+        cout<<"Enter elements of vector n "<<endl;
+        cin>>n;
+        cout<<endl;
+        cout<<"m = "<<m<<endl;
+        cout<<"n = "<<n<<endl;
+        cout<<endl;
+        product=m*n;
+        cout<<"m*n = "<<product<<endl;
+        cout<<"*** 1 to continue and any other keys to EXIT ***"<<endl;
+        cout<<" >> ";
+        cin>>x;
+        if(x!=1){
+            break;
+        }
+    } 
+    cout<<"********Thank you********"<<endl;
     return 0;
 }

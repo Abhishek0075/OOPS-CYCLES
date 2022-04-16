@@ -42,6 +42,7 @@ void set::input(void){
 	cin>>Mark1;
 	while(Mark1>100){
 		cout<<"!! Mark is greater than 100 Enter right marks !!"<<endl;
+		cout<<"Enter marks of Science : "<<endl<<">> ";
 		cin>>Mark1;
 		if(Mark1<=100){
 			break;
@@ -51,6 +52,7 @@ void set::input(void){
 	cin>>Mark2;
 	while(Mark2>100){
 		cout<<"!! Mark is greater than 100 Enter right marks !!"<<endl;
+		cout<<"Enter marks of Malayalam : "<<endl<<">> ";
 		cin>>Mark2;
 		if(Mark2<=100){
 			break;
@@ -60,6 +62,7 @@ void set::input(void){
 	cin>>Mark3;
 	while(Mark3>100){
 		cout<<"!! Mark is greater than 100 Enter right marks !!"<<endl;
+		cout<<"Enter marks of Maths : "<<endl<<">> ";
 		cin>>Mark3;
 		if(Mark3<=100){
 			break;

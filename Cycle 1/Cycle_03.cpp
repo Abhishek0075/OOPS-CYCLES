@@ -87,10 +87,7 @@ int main(){
 		else if(1<n and n<6){
 			cout<<"Enter the Account number : ";
 			cin>>no;
-			if(no>(count-1)){
-				cout<<"=========Incorrect Account number========="<<endl;
-				cout<<"* Please check and try again"<<endl;
-			}else{
+			if(no>100 and no<=(count-1)){
 				if(n==2){
 					cust[no].withdraw();
 				}
@@ -106,6 +103,9 @@ int main(){
 				else if(n==5){
 					cust[no].statement();
 				}
+			}else{
+				cout<<"=========Incorrect Account number========="<<endl;
+				cout<<"* Please check and try again"<<endl;
 			}
 		}else{
 			cout<<"    ***Thank You for using SBI***"<<endl;

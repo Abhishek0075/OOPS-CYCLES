@@ -16,11 +16,12 @@ public:
 	friend void add_mat(matrix &a,matrix &b);
 };
 matrix::~matrix(){
-	cout<<endl<<"Memory released"<<endl;
+	
 	for(int i=0;i<d1;i++){
 		delete p[i];
 	}
 	delete p;
+	cout<<endl<<"Memory released"<<endl;
 
 }
 matrix::matrix(int x,int y){

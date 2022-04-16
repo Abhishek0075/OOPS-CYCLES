@@ -41,9 +41,9 @@ int main(){
 		B=complex(r);
 		B.display();
 		C=sum(A,B);
-		cout<<"--------SUM--------"<<endl;
+		cout<<"------------------------ SUM -------------------------"<<endl;
 		C.display();
-		cout<<"----------------------------------------------------\n";
+		cout<<" ----------------------------------------------------\n";
 		cout<<"\tEnter 1 to continue the process"<<endl<<"\tEnter any other key to exit"<<endl;
 		cin>>x;
 	}
