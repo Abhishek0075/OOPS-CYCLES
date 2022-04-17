@@ -5,8 +5,11 @@ class Time{
 public:
 	void gettime(){
 		cout<<"Enter the time in hh mm ss form :"<<endl;
+		cout<<" >> ";
 		cin>>hours;
+		cout<<" >> ";
 		cin>>minutes;
+		cout<<" >> ";
 		cin>>seconds;
 	}
 	void sum(Time t1,Time t2){
