@@ -24,19 +24,19 @@ void items::purchase(){
 	for(int i=0;i<count;i++){
 		if(prdt[i].itemcode==x){
 		    cout<<"The number of stocks in the inventory : "<<prdt[i].stock<<endl;
-		    cout<<"Enter number of stocks to be added : "<<endl<<">>> ";
+		    cout<<"Enter number of stocks to be purchased : "<<endl<<">>> ";
 		    cin>>y;
 		    if(prdt[i].stock>=y){
     			prdt[i].stock=prdt[i].stock-y;
     			cout<<">> New number of stocks : "<<prdt[i].stock<<endl;
 				break;
 		    }else{
-		        cout<<"!!!! The number of stocks in the inventory in lesser than the need !!!!";
+		        cout<<"!!!! The number of stocks in the inventory in lesser than the need !!!!\n";
 		    }
 		}
 
 	}
-	cout<<"======Invalid Code======"<<endl;
+
 }
 void items::stock_add(){
     cout<<"============ADD STOCKS==========="<<endl;

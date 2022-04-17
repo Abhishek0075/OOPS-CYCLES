@@ -45,7 +45,10 @@ int main(){
 		C.display();
 		cout<<" ----------------------------------------------------\n";
 		cout<<"\tEnter 1 to continue the process"<<endl<<"\tEnter any other key to exit"<<endl;
+		cout<<" >> ";
 		cin>>x;
+		
 	}
+	cout<<"********THANK YOU FOR USING********"<<endl;
 	return 0;
 }
