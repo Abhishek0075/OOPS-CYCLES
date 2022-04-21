@@ -7,36 +7,50 @@ class items{
 	int stock;
 	string name;
 public:
-	void additem();
-	void remove();
-	void sumup();
-	void displayitems();
-	void stock_add();
-	void purchase();
+	void additem(void);
+	void remove(void);
+	void sumup(void);
+	void displayitems(void);
+	void stock_add(void);
+	void purchase(void);
 	
 };
 items prdt[100];
 void items::purchase(){
     cout<<"============PURCHASE STOCKS==========="<<endl;
-	int x,y;
-	cout<<"Enter the code of item to buy stocks of : ";
-	cin>>x;
-	for(int i=0;i<count;i++){
-		if(prdt[i].itemcode==x){
-		    cout<<"The number of stocks in the inventory : "<<prdt[i].stock<<endl;
-		    cout<<"Enter number of stocks to be purchased : "<<endl<<">>> ";
-		    cin>>y;
-		    if(prdt[i].stock>=y){
-    			prdt[i].stock=prdt[i].stock-y;
-    			cout<<">> New number of stocks : "<<prdt[i].stock<<endl;
-				break;
-		    }else{
-		        cout<<"!!!! The number of stocks in the inventory in lesser than the need !!!!\n";
-		    }
+	int x,y,breaker=1,cnt=0;
+    items array[100];
+	while(breaker==1){
+		cout<<"Enter the code of item to buy stocks of : ";
+		cin>>x;
+		for(int i=0;i<count;i++){
+			if(prdt[i].itemcode==x){
+				cout<<"The number of stocks in the inventory : "<<prdt[i].stock<<endl;
+				cout<<"Enter number of stocks to be purchased : "<<endl<<">>> ";
+				cin>>y;
+				if(prdt[i].stock>=y){
+					prdt[i].stock=prdt[i].stock-y;
+					cout<<">> New number of stocks : "<<prdt[i].stock<<endl;
+                    array[cnt]=prdt[i];
+                    cnt=cnt+1;
+					break;
+				}else{
+					cout<<"!!!! The number of stocks in the inventory in lesser than the need !!!!\n";
+				}
+			}
 		}
-
+		cout<<"   DO YOU WANT TO CONTINUE ?"<<endl;
+		cout<<"  1 to Continue other to EXIT"<<endl;
+		cin>>breaker;
 	}
-
+	cout<<"---------Purchased items---------"<<endl;
+    for(int i=0;i<cnt;i++){
+        cout<<"Name : "<<array[i].name<<endl;
+        cout<<"Code : "<<array[i].itemcode<<endl;
+        cout<<"Price : "<<array[i].itemprice<<endl;
+        cout<<"Stock : "<<array[i].stock<<endl;
+        cout<<"------------------------------------"<<endl;
+    }
 }
 void items::stock_add(){
     cout<<"============ADD STOCKS==========="<<endl;
@@ -101,8 +115,8 @@ void items::displayitems(){
 	}
 }
 int main() {
-	int x=3,y;
-	while(x>=1 and x<=5){
+	int x=3,y,breaker;
+	while(x>=1 and x<=6){
 				cout<<"=======================SHOPPING LIST======================="<<endl;
 				cout<<"\tNUMBER        PROCESS"<<endl;
 				cout<<"\t1 	 : Add new item ";
@@ -134,9 +148,7 @@ int main() {
 		cout<<"========================================="<<endl;
 		cout<<"    **DO YOU WANT TO CONTINUE**"<<endl<<"Press 1 to continue or any other to exit  "<<endl<<">>>> ";
 		cin>>y;
-		if(y==1){
-
-		}else{
+		if(y!=1){
 			cout<<"*************THANK YOU*************"<<endl;
 			break;
 		}
