@@ -43,11 +43,13 @@ void items::purchase(){
 		cout<<"  1 to Continue other to EXIT"<<endl;
 		cin>>breaker;
 	}
+	cout<<"---------Purchased items---------"<<endl;
     for(int i=0;i<cnt;i++){
         cout<<"Name : "<<array[i].name<<endl;
         cout<<"Code : "<<array[i].itemcode<<endl;
         cout<<"Price : "<<array[i].itemprice<<endl;
         cout<<"Stock : "<<array[i].stock<<endl;
+        cout<<"------------------------------------"<<endl;
     }
 }
 void items::stock_add(){
