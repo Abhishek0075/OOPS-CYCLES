@@ -80,27 +80,31 @@ int main(){
                 if(a==c and b==d){
                     C=A+B;
                     cout<<endl;
+                    cout<<"=====SUM====="<<endl;
                     for(int i=0;i<a;i++){
                         for(int j=0;j<d;j++){
                             cout<<C.show_element(i,j)<<" ";
                         }
                         cout<<endl;
                     }
+                    cout<<"============="<<endl;
                 }else{
-                    cout<<"The dimensions doesn't support addition of matrices "<<endl;
+                    cout<<"!! The dimensions doesn't support addition of matrices !! "<<endl;
                 }
             }else if(x==2){
                 if(b==c){
                     C=A*B;
                     cout<<endl;
+                    cout<<"=====PRODUCT====="<<endl;
                     for(int i=0;i<a;i++){
                         for(int j=0;j<d;j++){
                             cout<<C.show_element(i,j)<<" ";
                         }
                         cout<<endl;
                     }
+                    cout<<"================="<<endl;
                 }else{
-                    cout<<"The dimensions doesn't support multiplication of matrices "<<endl;
+                    cout<<"!! The dimensions doesn't support multiplication of matrices !! "<<endl;
                 }
             }
         }
